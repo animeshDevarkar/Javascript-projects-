@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.game-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.game-info {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.info-card {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  text-align: center;
+  flex: 1;
+  max-width: 120px;
+}
+
+.info-label {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
+.info-value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.game-area {
+  text-align: center;
+}
+
+.form {
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+#guess {
+  display: block;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+#guessField {
+  width: 100%;
+  max-width: 200px;
+  height: 60px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 3px solid #e0e0e0;
+  border-radius: 12px;
+  background: white;
+  color: #333;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+#guessField:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+#subt {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#subt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+#subt:active {
+  transform: translateY(0);
+}
+
+.feedback-area {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.lowOrHi h2 {
+  font-size: 1.3rem;
+  padding: 15px 25px;
+  border-radius: 12px;
+  margin: 0;
+  animation: fadeIn 0.5s ease;
+}
+
+.lowOrHi h2.right {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+}
+
+.lowOrHi h2.low {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: white;
+}
+
+.lowOrHi h2.higher {
+  background: linear-gradient(135deg, #ff5722, #d84315);
+  color: white;
+}
+
+.lowOrHi h2.game-over {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  color: white;
+}
+
+.resultParas {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.result-row {
+  margin-bottom: 15px;
+}
+
+.result-row:last-child {
+  margin-bottom: 0;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.result-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.guesses {
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1rem;
+  max-width: 200px;
+  word-wrap: break-word;
+}
+
+.lastResult {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+#newGame {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#newGame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .game-card {
+    padding: 30px 20px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .game-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-card {
+    max-width: 200px;
+  }
+
+  #guessField {
+    max-width: 180px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .result-item {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="project3.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-card">
+            <div class="header">
+                <h1>🎯 Number Guessing Game</h1>
+                <p class="subtitle">Can you guess the mystery number?</p>
+            </div>
+            
+            <div class="game-info">
+                <div class="info-card">
+                    <span class="info-label">Range</span>
+                    <span class="info-value">1 - 100</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Attempts</span>
+                    <span class="info-value">10 tries</span>
+                </div>
+            </div>
+
+            <div class="game-area">
+                <form class="form">
+                    <div class="input-group">
+                        <label for="guessField" id="guess">Enter your guess</label>
+                        <input type="text" id="guessField" class="guessField" placeholder="1-100" maxlength="3">
+                    </div>
+                    <input type="submit" id="subt" value="Submit Guess" class="guessSubmit">
+                </form>
+
+                <div class="feedback-area">
+                    <div class="lowOrHi"></div>
+                </div>
+
+                <div class="resultParas">
+                    <div class="result-row">
+                        <div class="result-item">
+                            <span class="result-label">Previous Guesses:</span>
+                            <span class="guesses"></span>
+                        </div>
+                    </div>
+                    <div class="result-row">
+                        <div class="result-item">
+                            <span class="result-label">Guesses Remaining:</span>
+                            <span class="lastResult">10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="project3.js"></script>
+</body>
+</html>
