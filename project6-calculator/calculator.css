@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #e8e8e8;  
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 420px;  
+  background: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 3px #000000;
+  z-index: 1;
+}
+
+.calculator-wrapper {
+  width: 300px;
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 3px #000000;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
+}
+
+input[type="text"] {
+  width: 260px;
+  height: 70px;
+  background: #a8a8a8;
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-align: right;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  outline: none;
+  font-family: 'Arial', sans-serif;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+body > input[type="text"],
+body > div {
+  position: relative;
+  z-index: 2;
+  width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  width: 260px;
+}
+
+div:last-child {
+  margin-bottom: 0;
+}
+
+/* General button styling */
+.btn {
+  flex: 1;
+  height: 55px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  background: #666666;
+  border: 1px solid #555;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: #777777;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ripple effect */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+}
+
+.btn:active::before {
+  width: 100%;
+  height: 100%;
+}
+
+/* Special buttons styling */
+
+/* AC and DEL buttons */
+div:first-of-type .btn:first-child,
+div:first-of-type .btn:nth-child(2),
+div:first-of-type .btn:nth-child(3) {
+  background: #e53e3e;
+  border: 1px solid #c53030;
+}
+
+div:first-of-type .btn:first-child:hover,
+div:first-of-type .btn:nth-child(2):hover,
+div:first-of-type .btn:nth-child(3):hover {
+  background: #f56565;
+}
+
+/* Operation buttons */
+div:nth-of-type(1) .btn:nth-child(4),
+div:nth-of-type(2) .btn:nth-child(4),
+div:nth-of-type(3) .btn:nth-child(4),
+div:nth-of-type(4) .btn:nth-child(4),
+div:nth-of-type(5) .btn:nth-child(4),
+div:last-of-type .btn:last-child {
+  background: #319795;
+  border: 1px solid #2c7a7b;
+}
+
+div:nth-of-type(1) .btn:nth-child(4):hover,
+div:nth-of-type(2) .btn:nth-child(4):hover,
+div:nth-of-type(3) .btn:nth-child(4):hover,
+div:nth-of-type(4) .btn:nth-child(4):hover,
+div:nth-of-type(5) .btn:nth-child(4):hover,
+div:last-of-type .btn:last-child:hover {
+  background: #4fd1c7;
+}
+
+@media (max-width: 480px) {
+  body::before {
+    width: 280px;
+    height: 400px;
+  }
+
+  body > input[type="text"],
+  body > div,
+  input[type="text"],
+  div {
+    width: 240px;
+  }
+
+  input[type="text"] {
+    height: 60px;
+    font-size: 2rem;
+    padding: 0 12px;
+  }
+
+  .btn {
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  div {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+}
