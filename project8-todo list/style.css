@@ -1,0 +1,498 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #8B4513 0%, #D2B48C 50%, #F5DEB3 100%);
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Coffee Doodle Background Elements */
+body::before {
+    content: '☕';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+    color: #654321;
+}
+
+body::after {
+    content: '☕';
+    position: absolute;
+    top: 70%;
+    right: 8%;
+    font-size: 1.5rem;
+    opacity: 0.25;
+    animation: float 4s ease-in-out infinite reverse;
+    color: #8B4513;
+}
+
+/* Additional Coffee Doodles */
+.coffee-doodle {
+    position: absolute;
+    opacity: 0.2;
+    color: #654321;
+    font-size: 1.8rem;
+    animation: float 5s ease-in-out infinite;
+}
+
+.coffee-doodle:nth-child(1) {
+    top: 30%;
+    left: 10%;
+    animation-delay: -1s;
+}
+
+.coffee-doodle:nth-child(2) {
+    top: 50%;
+    right: 15%;
+    animation-delay: -2s;
+}
+
+.coffee-doodle:nth-child(3) {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -3s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.container {
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: rotate(-1deg);
+    border: 3px solid #f0f0f0;
+}
+
+/* Whiteboard effect with spiral binding */
+.container::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 20px;
+    bottom: 20px;
+    width: 30px;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 15px,
+        #ddd 15px,
+        #ddd 20px
+    );
+    border-radius: 15px;
+}
+
+/* Whiteboard holes */
+.container::after {
+    content: '○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○';
+    position: absolute;
+    left: -10px;
+    top: 30px;
+    bottom: 30px;
+    width: 20px;
+    color: #ccc;
+    font-size: 12px;
+    line-height: 25px;
+    text-align: center;
+    writing-mode: vertical-lr;
+}
+
+.todo-app h1 {
+    color: #654321;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-app h1 img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F5DEB3;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    border: 2px solid #D2B48C;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 500;
+    color: #654321;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #8B4513;
+    opacity: 0.7;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #8B4513;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: #654321;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    color: #654321;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+ul li:hover {
+    background: #F5F5DC;
+    transform: translateX(5px);
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked {
+    color: #8B4513;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+ul li.checked::before {
+    background-image: url(images/checked.png);
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #8B4513;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+ul li span:hover {
+    background: rgba(139, 69, 19, 0.1);
+    transform: scale(1.2);
+}
+
+/* Alien Character */
+.alien {
+    position: absolute;
+    bottom: -30px;
+    right: -50px;
+    width: 80px;
+    height: 100px;
+    opacity: 0;
+    animation: alienPeek 3s infinite;
+    z-index: 10;
+}
+
+.alien-body {
+    width: 60px;
+    height: 70px;
+    background: #90EE90;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: relative;
+    border: 2px solid #228B22;
+}
+
+.alien-eyes {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.alien-eye {
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+    position: relative;
+}
+
+.alien-eye::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.alien-antennae {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.antenna {
+    width: 2px;
+    height: 15px;
+    background: #228B22;
+    position: relative;
+}
+
+.antenna::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -2px;
+    width: 6px;
+    height: 6px;
+    background: #FFD700;
+    border-radius: 50%;
+}
+
+.alien-arms {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.alien-arm {
+    width: 15px;
+    height: 25px;
+    background: #90EE90;
+    border-radius: 10px;
+    border: 1px solid #228B22;
+}
+
+.alien-arm.left {
+    transform: rotate(-20deg);
+    left: -8px;
+}
+
+.alien-arm.right {
+    transform: rotate(20deg);
+    right: -8px;
+}
+
+/* Alien Thought Bubble */
+.alien-thought {
+    position: absolute;
+    top: -60px;
+    right: -120px;
+    width: 140px;
+    height: 80px;
+    background: #fff;
+    border: 3px solid #333;
+    border-radius: 50px 50px 50px 10px;
+    opacity: 0;
+    animation: thoughtBubble 3s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 11;
+}
+
+.alien-thought::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border: 3px solid #333;
+    border-top: none;
+    border-right: none;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+}
+
+.alien-thought::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 15px;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border: 2px solid #333;
+    border-top: none;
+    border-right: none;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+}
+
+.alien-thought-text {
+    font-size: 11px;
+    color: #333;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.2;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+@keyframes thoughtBubble {
+    0%, 60% { 
+        opacity: 0; 
+        transform: scale(0.5) translateY(15px);
+    }
+    70% {
+        opacity: 0.7;
+        transform: scale(0.8) translateY(8px);
+    }
+    80%, 90% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0);
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0.5) translateY(15px);
+    }
+}
+
+@keyframes alienPeek {
+    0%, 60% { 
+        opacity: 0; 
+        transform: translateX(80px) translateY(15px);
+    }
+    70% {
+        opacity: 0.5;
+        transform: translateX(40px) translateY(8px);
+    }
+    80%, 90% { 
+        opacity: 1; 
+        transform: translateX(0) translateY(0);
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateX(80px) translateY(15px);
+    }
+}
+
+/* Add coffee doodles to HTML */
+.coffee-doodles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        margin: 50px auto 20px;
+        padding: 30px 20px 50px;
+    }
+    
+    .todo-app h1 {
+        font-size: 1.5rem;
+    }
+    
+    button {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+    
+    .alien {
+        width: 60px;
+        height: 80px;
+        bottom: -20px;
+        right: -30px;
+    }
+    
+    .alien-body {
+        width: 45px;
+        height: 55px;
+    }
+
+    /* Update responsive design for thought bubble */
+    .alien-thought {
+        width: 120px;
+        height: 70px;
+        right: -100px;
+        top: -50px;
+    }
+    
+    .alien-thought-text {
+        font-size: 10px;
+    }
+}
+
+/* Paper texture effect */
+.container {
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.02) 0%, transparent 50%),
+        #fff;
+}

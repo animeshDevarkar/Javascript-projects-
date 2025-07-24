@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To Do list</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Coffee Doodles Background -->
+    <div class="coffee-doodles">
+        <div class="coffee-doodle">☕</div>
+        <div class="coffee-doodle">☕</div>
+        <div class="coffee-doodle">☕</div>
+    </div>
+
+    <div class="container">
+        <div class="todo-app">
+            <h1>ToDo List <img src="images/icon.png" alt="Todo Icon"></h1>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add your text">
+                <button onclick="addTask()">Add</button>
+            </div>
+            <ul id="list-container">
+                <li class="checked">Task 1 <span>×</span></li>
+                <li>Task 2 <span>×</span></li>
+            </ul>
+        </div>
+
+        <!-- Alien Character with Thought Bubble -->
+        <div class="alien">
+            <!-- Thought Bubble -->
+            <div class="alien-thought">
+                <div class="alien-thought-text">Enjoy and fulfill your tasks daily!</div>
+            </div>
+            
+            <div class="alien-antennae">
+                <div class="antenna"></div>
+                <div class="antenna"></div>
+            </div>
+            <div class="alien-body">
+                <div class="alien-eyes">
+                    <div class="alien-eye"></div>
+                    <div class="alien-eye"></div>
+                </div>
+                <div class="alien-arms">
+                    <div class="alien-arm left"></div>
+                    <div class="alien-arm right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js">
+
+    </script>
+</body>
+</html>
