@@ -1,0 +1,350 @@
+/* Universal Box Sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body - Solid Black Background */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #000000; /* Solid black background */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff; /* White text for general contrast */
+  overflow: hidden; /* Prevent scrollbars from any potential overflow */
+  position: relative; /* Needed for absolute positioning of background elements */
+}
+
+/* Floating Background Elements Container */
+.floating-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Ensure it's behind the game content */
+}
+
+/* Generic Floating Shape Styling */
+.floating-shape {
+  position: absolute;
+  background: rgba(0, 255, 255, 0.1); /* Subtle cyan transparent background */
+  border: 1px solid rgba(0, 255, 255, 0.3); /* Cyan border */
+  border-radius: 50%; /* Default to circular shapes */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Glowing effect */
+  animation: float-animation 20s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+/* Individual Shape Sizes and Positions (adjust as needed) */
+.shape-1 {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 15%;
+  animation-duration: 25s;
+  animation-delay: 0s;
+}
+.shape-2 {
+  width: 120px;
+  height: 120px;
+  top: 70%;
+  left: 5%;
+  animation-duration: 30s;
+  animation-delay: 5s;
+  border-radius: 10px; /* Make this one a square */
+}
+.shape-3 {
+  width: 60px;
+  height: 60px;
+  top: 20%;
+  left: 80%;
+  animation-duration: 22s;
+  animation-delay: 2s;
+}
+.shape-4 {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 90%;
+  animation-duration: 28s;
+  animation-delay: 8s;
+  border-radius: 10px; /* Make this one a square */
+}
+.shape-5 {
+  width: 70px;
+  height: 70px;
+  top: 85%;
+  left: 40%;
+  animation-duration: 20s;
+  animation-delay: 3s;
+}
+.shape-6 {
+  width: 90px;
+  height: 90px;
+  top: 5%;
+  left: 50%;
+  animation-duration: 26s;
+  animation-delay: 6s;
+  border-radius: 10px; /* Make this one a square */
+}
+
+/* Keyframe Animation for Floating */
+@keyframes float-animation {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(20px, -30px) rotate(5deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(0, -50px) rotate(0deg);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-20px, -30px) rotate(-5deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.6;
+  }
+}
+
+/* Main Game Container (retained from previous version) */
+main {
+  background: #1a1a1a; /* Dark background for the main container */
+  border-radius: 20px;
+  padding: 2.5rem; /* Increased padding for better spacing */
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.7), /* Stronger cyan glow */ 0 0 80px rgba(0, 255, 255, 0.3); /* Wider, softer glow */
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  position: relative; /* Ensure it's positioned correctly over background */
+  z-index: 1; /* Ensure it's above the floating background */
+  border: 1px solid rgba(0, 255, 255, 0.5); /* Cyan border */
+}
+
+h1 {
+  font-size: 2.8rem; /* Slightly larger title */
+  margin-bottom: 2rem; /* More space below title */
+  color: #00ffff; /* Bright cyan color for title */
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.9); /* Stronger glow for text */
+  letter-spacing: 2px; /* Add some letter spacing */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem; /* More space below game grid */
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px; /* Slightly larger gap between boxes */
+  background: #0d0d0d; /* Even darker background for the grid area */
+  padding: 18px; /* Increased padding for the grid area */
+  border-radius: 15px;
+  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.2); /* Subtle inner glow */
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: #1a1a1a; /* Dark background for individual boxes */
+  border: 2px solid #00ffff; /* Bright cyan border */
+  border-radius: 10px;
+  font-size: 3rem; /* Larger font size for X/O */
+  font-weight: bold;
+  color: #00ffff; /* Bright cyan color for X/O */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Cyan glow for boxes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box:hover {
+  background: #2a2a2a; /* Slightly lighter on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); /* More intense glow on hover */
+}
+
+.box:active {
+  transform: translateY(0);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+.box:disabled {
+  cursor: not-allowed;
+  opacity: 0.8; /* Keep some glow */
+  color: #ffffff; /* Ensure disabled text is visible */
+}
+
+/* Buttons */
+#reset-btn,
+#new-btn {
+  background: linear-gradient(135deg, #00ffff, #00aaff); /* Cyan to light blue gradient */
+  color: #000000; /* Black text for contrast on bright buttons */
+  border: none;
+  padding: 14px 35px; /* Larger padding for buttons */
+  font-size: 1.2rem; /* Larger font size */
+  font-weight: bold;
+  border-radius: 30px; /* More rounded buttons */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6); /* Stronger glow for buttons */
+  margin-top: 1.5rem; /* Add some space above buttons */
+}
+
+#new-btn {
+  margin-left: 15px; /* Space between new game and reset buttons */
+}
+
+#reset-btn:hover,
+#new-btn:hover {
+  background: linear-gradient(135deg, #00aaff, #00ffff);
+  transform: translateY(-3px); /* More pronounced lift on hover */
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); /* Even stronger glow on hover */
+}
+
+#reset-btn:active,
+#new-btn:active {
+  transform: translateY(0);
+}
+
+/* Message Container */
+.msg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95); /* Almost opaque black overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Stronger blur for message */
+}
+
+.msg-container.hide {
+  display: none;
+}
+
+#msg {
+  font-size: 4rem; /* Even larger font for winner message */
+  font-weight: bold;
+  color: #00ffff; /* Bright cyan color for winner message */
+  margin-bottom: 2.5rem;
+  text-shadow: 0 0 25px rgba(0, 255, 255, 1); /* Very strong glow */
+  animation: bounce 0.8s ease-in-out;
+}
+
+/* Keyframe for bounce animation */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-35px);
+  }
+  60% {
+    transform: translateY(-18px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  main {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .box {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .game {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  #msg {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  #new-btn,
+  #reset-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
+
+  /* Adjust floating shapes for smaller screens */
+  .floating-shape {
+    width: 50px;
+    height: 50px;
+  }
+  .shape-1 {
+    top: 5%;
+    left: 10%;
+  }
+  .shape-2 {
+    top: 80%;
+    left: 15%;
+  }
+  .shape-3 {
+    top: 15%;
+    left: 70%;
+  }
+  .shape-4 {
+    top: 60%;
+    left: 85%;
+  }
+  .shape-5 {
+    top: 90%;
+    left: 50%;
+  }
+  .shape-6 {
+    top: 10%;
+    left: 40%;
+  }
+}
+
+@media (max-width: 400px) {
+  .box {
+    width: 70px;
+    height: 70px;
+    font-size: 2.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #msg {
+    font-size: 2.5rem;
+  }
+}
